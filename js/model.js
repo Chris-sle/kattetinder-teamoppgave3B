@@ -2,7 +2,7 @@ const model = {
     app: {
         currentPage: 'startpage',
         currentUser: null,
-        darkMode: true,
+        darkMode: false,
     },
     inputs: {
         loginPage: {
