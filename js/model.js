@@ -1,7 +1,7 @@
 const model = {
     app: {
         currentPage: null,
-        currentUser: null,
+        currentUserId: null,
         darkMode: false,
     },
     inputs: {
@@ -75,7 +75,7 @@ const model = {
                     breedSelected: 'all',
                     ageRangeSelected: 'all'
                 },
-                likes: [2],
+                likes: [],
             },
             {
                 id: 2,
