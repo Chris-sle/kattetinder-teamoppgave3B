@@ -79,23 +79,61 @@ const model = {
             },
             {
                 id: 2,
-                userPassword: '123',
-                uploadedImgs: [],
+                userPassword: 'safePassword',
+                uploadedImgs: ['img/turboImg1.jpg', 'img/turboImg2.jpg'],
                 displayName: 'Turbo',
-                displayAge: '',
-                displayBio: '',
+                displayAge: '3',
+                displayBio: 'Rask som vinden',
+                profilePictureIndex: 1,
+                displayedImgs: ['img/turboImg2.jpg'],
+                visibility: true,
+                email: 'fastest@this.com',
+                phone: '999 88 777',
+                activeFilters: {
+                  genderSelected: 'all',
+                  breedSelected: 'all',
+                  ageRangeSelected: '2-5'
+                },
+                likes: [1, 3],
+            },
+            {
+                id: 3,
+                userPassword: 'anotherPass',
+                uploadedImgs: ['img/shadowImg1.jpg'],
+                displayName: 'Shadow',
+                displayAge: '5',
+                displayBio: 'Stille, men dødelig',
                 profilePictureIndex: 0,
                 displayedImgs: [],
                 visibility: true,
-                email: 'thingything@this.com',
-                phone: '',
+                email: 'quiet@this.com',
+                phone: '123 45 678',
                 activeFilters: {
-                    genderSelected: 'all',
-                    breedSelected: 'all',
-                    ageRangeSelected: 'all'
+                  genderSelected: 'all',
+                  breedSelected: 'all',
+                  ageRangeSelected: '4-6'
                 },
                 likes: [1],
             },
+            {
+                id: 4,
+                userPassword: 'password123',
+                uploadedImgs: ['img/blazeImg1.jpg', 'img/blazeImg2.jpg', 'img/blazeImg3.jpg'],
+                displayName: 'Blaze',
+                displayAge: '2',
+                displayBio: 'Brennende ånd, myk pels',
+                profilePictureIndex: 2,
+                displayedImgs: ['img/blazeImg3.jpg'],
+                visibility: true,
+                email: 'firestarter@this.com',
+                phone: '654 32 198',
+                activeFilters: {
+                  genderSelected: 'all',
+                  breedSelected: 'all',
+                  ageRangeSelected: '1-3'
+                },
+                likes: [2, 3],
+            }
         ],
 
         matches: [
