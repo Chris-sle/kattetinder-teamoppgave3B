@@ -1,5 +1,17 @@
 .swipePageContainer {
-    
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.profileCard {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.profileCard p {
+    grid-column: span 3;
 }
 
 .img-container {
