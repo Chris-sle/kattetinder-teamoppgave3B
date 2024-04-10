@@ -7,12 +7,12 @@ function homepageView() {
 
     app.innerHTML = /*HTML*/ `
     <div class="container">
-        header <br>
+        createHeaderHtml()
         <div>
             <h3>${registeredUsers[index].displayName}</h3>
             <div class="profileCard">
                 <button></button>
-                <img id="profileImg" src="${registeredUsers[index]}" alt="profile picture">
+                <img id="profileImg" src="${registeredUsers[index].uploadedImgs[profilePictureId]}" alt="profile picture">
                 <p id="displayBio"></p>
                 <button></button>
             </div>
