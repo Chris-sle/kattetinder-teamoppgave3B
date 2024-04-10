@@ -1,9 +1,22 @@
-body {
+.headerFull {
+    display: flex;
+    justify-content: space-between;
+    
     background-color: gray;
 }
-h1 {
-    color: red;
-
-p {
-    color: yellow;
+.headerItem {
+    margin: 5px;
+    border: 2px solid black;
+}
+.headerLeft {
+    display: flex;
+    justify-content: flex-start;
+}
+.headerCenter {
+    display: flex;
+    justify-content: center;
+}
+.headerRight {
+    display: flex;
+    justify-content: flex-end;
 }
