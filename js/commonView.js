@@ -1,3 +1,11 @@
+
+
+function updateView() {
+    const page = model.app.currentPage;
+    if (page == null) homepageView();
+    // else if (page == 'homepage') homepageView();
+}
+
 function createHeaderHtml() {
     let html = /*HTML*/ `
     <div class="headerFull">
