@@ -12,7 +12,7 @@ function homepageView() {
             <h3>${registeredUsers[index].displayName}</h3>
             <div class="profileCard">
                 <button></button>
-                <img id="profileImg" src="${registeredUsers}" alt="profile picture">
+                <img id="profileImg" src="${registeredUsers[index]}" alt="profile picture">
                 <p id="displayBio"></p>
                 <button></button>
             </div>
