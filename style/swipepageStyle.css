@@ -1,0 +1,16 @@
+.swipePageContainer {
+    
+}
+
+.img-container {
+  width: 200px; /* or any specific value */
+  height: 200px; /* or any specific value */
+  overflow: hidden; /* Ensures anything outside the bounds does not show */
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* You can also apply object-fit here if desired */
+}
