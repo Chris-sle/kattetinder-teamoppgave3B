@@ -7,7 +7,11 @@ function homepageView() {
 
     app.innerHTML = /*HTML*/ `
     <div class="container">
+<<<<<<< Updated upstream
         createHeaderHtml()
+=======
+        ${createHeaderHtml()}
+>>>>>>> Stashed changes
         <div>
             <h3>${registeredUsers[index].displayName}</h3>
             <div class="profileCard">

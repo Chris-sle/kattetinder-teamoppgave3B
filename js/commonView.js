@@ -1,5 +1,3 @@
-
-
 function updateView() {
     const page = model.app.currentPage;
     if (page == null) homepageView();
@@ -10,7 +8,7 @@ function createHeaderHtml() {
     let html = /*HTML*/ `
     <div class="headerFull">
 
-        <div class="headerRight, headerItem">
+        <div class="headerLeft, headerItem">
             <button>Hjem</button>
             <button>Chat</button>
             <button>Aktiviteter</button>
@@ -21,8 +19,10 @@ function createHeaderHtml() {
         </div>
 
         <div class="headerRight, headerItem">
+            <div>
             <button>Profil</button>
             <button>Innstillinger</button>
+            </div>
         </div>
 
     </div>

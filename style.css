@@ -1,22 +1,24 @@
 .headerFull {
-    display: flex;
-    justify-content: space-between;
-    
-    background-color: gray;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  background-color: gray;
 }
 .headerItem {
-    margin: 5px;
-    border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.headerLeft {
-    display: flex;
-    justify-content: flex-start;
+
+/* .headerLeft {
+  display: flex;
+  justify-content: flex-start;
 }
 .headerCenter {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .headerRight {
-    display: flex;
-    justify-content: flex-end;
-}
+  display: flex;
+  justify-content: flex-end;
+} */
