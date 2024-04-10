@@ -6,16 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="updateView()">
     <div id="app"></div>
 
     <script src="js/model.js"></script>
 
+    <script src="js/homepage/homepageView.js"></script>
+
     <script>
         function updateView() {
             const page = model.app.currentPage;
-            if (page == 'homepage') updateViewHomepage();
-            else if (page == 'logginPage') updateViewDirectory();
+            if (page == null) homepageView();
+            // else if (page == 'homepage') homepageView();
         }
     </script>
 </body>

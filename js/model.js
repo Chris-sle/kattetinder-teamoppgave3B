@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'startpage',
+        currentPage: null,
         currentUser: null,
         darkMode: false,
     },
@@ -17,6 +17,7 @@ const model = {
         },
         mainPage: {
             previousUserId: null,
+            currentProfileIndex: 0,
         },
         chatPage: {
             content: null,
