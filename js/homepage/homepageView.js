@@ -4,8 +4,6 @@ function homepageView() {
     const index = model.inputs.mainPage.currentProfileIndex;
      
     
-
-
     app.innerHTML = /*HTML*/ `
     ${createHeaderHtml()}
     <div class="swipePageContainer">
@@ -18,7 +16,7 @@ function homepageView() {
                     src="${user[index].uploadedImgs[user[index].profilePictureIndex]}" 
                     alt="profile picture">
                 </div>
-                <button onclick="swipeRight()">👍</button>
+                <button onclick="swipeRight(${user[index].id})">👍</button>
                 <p id="displayBio">${user[index].displayBio}</p>
             </div>
         </div>
