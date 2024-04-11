@@ -1,12 +1,15 @@
 function swipeRight() {
     const profileIndex = model.inputs.mainPage.currentProfileIndex;
     const profile = model.data.registeredUsers
-    profile[profileIndex].id
+    moveToNextProfile()
 }
 
 function moveToNextProfile() {
-    const profileIndex = model.inputs.mainPage.currentProfileIndex;
+    model.inputs.mainPage.currentProfileIndex++;
 
-    profileIndex++;
-    updateView()
-}   
+    if (model.inputs.mainPage.currentProfileIndex >= model.data.registeredUsers.length) {
+        model.inputs.mainPage.currentProfileIndex = 0;
+    }
+
+    updateView();
+}  
