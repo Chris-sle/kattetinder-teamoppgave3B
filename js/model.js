@@ -9,6 +9,8 @@ const model = {
             usernameInput: null,
             passwordInput: null,
             registerNewUser: {
+                isActive: false,
+                newUserNameInput: null,
                 newEmailInput: null,
                 newPhoneNrInput: null,
                 newPasswordInput: null,
