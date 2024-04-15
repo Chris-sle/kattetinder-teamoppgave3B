@@ -10,7 +10,7 @@ function homepageView() {
         <div>
             <h3>${user[index].displayName}</h3>
             <div class="profileCard">
-                <button>👎</button>
+                <button onclick="swipeLeft(${user[index].id})">👎</button>
                 <div class="img-container">
                 <img id="profileImg" 
                     src="${user[index].uploadedImgs[user[index].profilePictureIndex]}" 
@@ -23,4 +23,7 @@ function homepageView() {
     </div>
     `;
 }
-
+/*
+    lag et ekstra view, med forslag på hva du kan gjøre da du har sett alle profilene som f.eks. 
+    chatte, aktiviteter eller gjøre endringer på egen profil
+*/

@@ -3,16 +3,34 @@ function swipeRight(likedUserId) {
     moveToNextProfile();
 }
 
-function moveToNextProfile() {
-    const registeredUsers = model.data.registeredUsers
-    let profileIndex = model.inputs.mainPage.currentProfileIndex;
-    profileIndex++;
-    console.log(profileIndex)
+function swipeLeft(dislikedUserId) {
+    dislikeProfile(dislikedUserId);
+    moveToNextProfile();
+}
 
-    if (profileIndex >= registeredUsers.length) {
-        profileIndex = 0;
+function moveToNextProfile() {
+    const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId);
+    if (!currentUser) {
+      console.error('Current user not found.');
+      return;
     }
-    model.inputs.mainPage.currentProfileIndex = profileIndex;
+  
+    const potentialProfiles = model.data.registeredUsers.filter(user => {
+      return user.id !== model.app.currentUserId &&
+             !currentUser.likes.includes(user.id) &&
+             !currentUser.dislikes.includes(user.id);
+    });
+  
+    if (potentialProfiles.length === 0) {
+      console.log('No more profiles available.');
+      return;
+    }
+  
+    let randomIndex = Math.floor(Math.random() * potentialProfiles.length);
+    let nextProfile = potentialProfiles[randomIndex];
+    let nextProfileGlobalIndex = model.data.registeredUsers.findIndex(user => user.id === nextProfile.id);
+    
+    model.inputs.mainPage.currentProfileIndex = nextProfileGlobalIndex;
     updateView();
 }
 
@@ -27,3 +45,16 @@ function likeProfile(likedUserId) {
         console.log(`User ${currentUserId} already liked User ${likedUserId}`);
     }
 }
+
+function dislikeProfile(dislikedUserId) {
+    const currentUserId = model.app.currentUserId;
+    let currentUser = model.data.registeredUsers.find(user => user.id === currentUserId);
+
+    if(!currentUser.dislikes.includes(dislikedUserId)) {
+        currentUser.dislikes.push(dislikedUserId);
+        console.log(`User ${currentUserId} disliked User ${dislikedUserId}`)
+    } else {
+        console.log(`User ${currentUserId} already disliked User ${dislikedUserId}`);
+    }
+}
+

@@ -78,6 +78,7 @@ const model = {
                     ageRangeSelected: 'all'
                 },
                 likes: [],
+                dislikes: [],
             },
             {
                 id: 2,
@@ -97,6 +98,7 @@ const model = {
                   ageRangeSelected: '2-5'
                 },
                 likes: [1, 3],
+                dislikes: [],
             },
             {
                 id: 3,
@@ -116,6 +118,7 @@ const model = {
                   ageRangeSelected: '4-6'
                 },
                 likes: [1],
+                dislikes: [],
             },
             {
                 id: 4,
@@ -135,6 +138,7 @@ const model = {
                   ageRangeSelected: '1-3'
                 },
                 likes: [2, 3],
+                dislikes: [],
             }
         ],
 
