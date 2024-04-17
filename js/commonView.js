@@ -6,6 +6,8 @@ function updateView() {
 }
 
 function createHeaderHtml() {
+    const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId)
+
     let html = /*HTML*/ `
     <div class="headerFull">
 
@@ -21,6 +23,7 @@ function createHeaderHtml() {
 
         <div class="headerRight, headerItem">
             <div>
+            <p>Du er logget inn som ${currentUser.displayName}
             <button>Profil</button>
             <button onclick="goTo('settings')">Innstillinger</button>
             </div>
