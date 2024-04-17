@@ -1,12 +1,21 @@
+
 function homepageView() {
+    moveToNextProfile()
     const app = document.getElementById('app');
-    const user = model.data.registeredUsers;
-    const index = model.inputs.mainPage.currentProfileIndex;
-     
     
     app.innerHTML = /*HTML*/ `
     ${createHeaderHtml()}
     <div class="swipePageContainer">
+        ${createSwipePageHtml()}
+    </div>
+    `;
+    
+}
+
+function createSwipePageHtml() {
+    const user = model.data.registeredUsers;
+    const index = model.inputs.mainPage.currentProfileIndex;
+    let html = /*HTML*/ `
         <div>
             <h3>${user[index].displayName}</h3>
             <div class="profileCard">
@@ -20,9 +29,10 @@ function homepageView() {
                 <p id="displayBio">${user[index].displayBio}</p>
             </div>
         </div>
-    </div>
     `;
+    return html;
 }
+
 /*
     lag et ekstra view, med forslag på hva du kan gjøre da du har sett alle profilene som f.eks. 
     chatte, aktiviteter eller gjøre endringer på egen profil

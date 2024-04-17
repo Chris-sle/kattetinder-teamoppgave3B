@@ -1,11 +1,13 @@
 function swipeRight(likedUserId) {
     likeProfile(likedUserId);
     moveToNextProfile();
+    updateView();
 }
 
 function swipeLeft(dislikedUserId) {
     dislikeProfile(dislikedUserId);
     moveToNextProfile();
+    updateView();
 }
 
 function moveToNextProfile() {
@@ -31,7 +33,7 @@ function moveToNextProfile() {
     let nextProfileGlobalIndex = model.data.registeredUsers.findIndex(user => user.id === nextProfile.id);
     
     model.inputs.mainPage.currentProfileIndex = nextProfileGlobalIndex;
-    updateView();
+    
 }
 
 function likeProfile(likedUserId) {
