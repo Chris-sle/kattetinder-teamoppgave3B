@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: null,
+        currentPage: null, //homepage, settings
         currentUserId: null,
         darkMode: false,
     },
@@ -39,6 +39,9 @@ const model = {
             selctedActivity: null,
         },
         settingPage: {
+            isChangingPassword: false,
+            isChangingEmail: false,
+            isChangingPhone: false,
             changeEmailInput: null,
             changePhoneNrInput: null,
             changePasswordInput: null,
