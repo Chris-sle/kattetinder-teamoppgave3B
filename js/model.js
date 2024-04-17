@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: null, //homepage, settings
+        currentPage: null, //'homepage',' 'settings', null
         currentUserId: null,
         darkMode: false,
     },
