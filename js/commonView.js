@@ -2,6 +2,7 @@ function updateView() {
     const page = model.app.currentPage;
     if (page == null) loginView();
     else if (page == 'homepage') homepageView();
+    else if (page == 'settings') settingsView();
 }
 
 function createHeaderHtml() {
@@ -21,7 +22,7 @@ function createHeaderHtml() {
         <div class="headerRight, headerItem">
             <div>
             <button>Profil</button>
-            <button>Innstillinger</button>
+            <button onclick="goTo('settings')">Innstillinger</button>
             </div>
         </div>
 
