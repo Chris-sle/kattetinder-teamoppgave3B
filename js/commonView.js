@@ -12,7 +12,7 @@ function createHeaderHtml() {
     <div class="headerFull">
 
         <div class="headerLeft, headerItem">
-            <button>Hjem</button>
+            <button onclick="goTo('homepage')">Hjem</button>
             <button>Chat</button>
             <button>Aktiviteter</button>
         </div>
