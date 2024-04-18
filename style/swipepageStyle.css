@@ -8,6 +8,12 @@
 .profileCard {
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    place-items: center;
+}
+
+.profileCard button {
+  width: 100px;
+  height: 100px;
 }
 
 .profileCard p {
@@ -15,8 +21,8 @@
 }
 
 .img-container {
-  width: 200px; /* or any specific value */
-  height: 200px; /* or any specific value */
+  width: 200px; 
+  height: 200px; 
   overflow: hidden; /* Ensures anything outside the bounds does not show */
 }
 
@@ -25,4 +31,8 @@
   height: auto;
   object-fit: contain;
   /* You can also apply object-fit here if desired */
+}
+
+.endMessage li {
+  text-align: start;
 }

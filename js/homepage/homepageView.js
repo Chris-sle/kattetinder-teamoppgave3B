@@ -1,14 +1,22 @@
 function homepageView() {
-    moveToNextProfile()
+    const hasProfiles = moveToNextProfile();
     const app = document.getElementById('app');
-    
-    app.innerHTML = /*HTML*/ `
-    ${createHeaderHtml()}
-    <div class="swipePageContainer">
-        ${createSwipePageHtml()}
-    </div>
-    `;
-    
+
+    if (!hasProfiles) {
+        app.innerHTML = /*HTML*/ `
+        ${createHeaderHtml()}
+        <div class="swipePageContainer">
+            ${createEndOfSwipeHtml()}
+        </div>
+        `;
+    } else {
+        app.innerHTML = /*HTML*/ `
+        ${createHeaderHtml()}
+        <div class="swipePageContainer">
+            ${createSwipePageHtml()}
+        </div>
+        `;
+    };
 }
 
 function createSwipePageHtml() {
@@ -32,7 +40,17 @@ function createSwipePageHtml() {
     return html;
 }
 
-/*
-    lag et ekstra view, med forslag på hva du kan gjøre da du har sett alle profilene som f.eks. 
-    chatte, aktiviteter eller gjøre endringer på egen profil
-*/
+function createEndOfSwipeHtml() {
+    let html = /*HTML*/ `
+        <div class="endMessage">
+            <h3>Slutt på listen 😟</h3>
+            <p>Her er noen forslåg på hva du kan gjøre:</p>
+            <ol>
+                <li>Du kan gjøre endringer på profilen din.</li>
+                <li>Du kan se om du har matchet med noen inne på chat.</li>
+                <li>Du kan sjekke ut aktiviteter i omerådet.</li>
+            </ol>
+        </div>
+    `;
+    return html;
+}
