@@ -1,4 +1,3 @@
-
 function homepageView() {
     moveToNextProfile()
     const app = document.getElementById('app');
