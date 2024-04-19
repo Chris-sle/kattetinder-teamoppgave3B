@@ -2,6 +2,8 @@ const model = {
     app: {
         currentPage: 'settings', //'homepage',' 'settings', null (login)
         currentUserId: null,
+        currentPage: 'homepage', //'homepage',' 'settings', null (login)
+        currentUserId: 1, // null.
         darkMode: false,
     },
     inputs: {

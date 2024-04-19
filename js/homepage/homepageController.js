@@ -19,14 +19,14 @@ function moveToNextProfile() {
 
     const potentialProfiles = model.data.registeredUsers.filter(user => {
         return user.id !== model.app.currentUserId &&
-               !currentUser.likes.includes(user.id) &&
-               !currentUser.dislikes.includes(user.id);
+            !currentUser.likes.includes(user.id) &&
+            !currentUser.dislikes.includes(user.id);
     });
 
     if (potentialProfiles.length === 0) {
         console.log('No more profiles available.');
         return false;
-    }
+    };
 
     let randomIndex = Math.floor(Math.random() * potentialProfiles.length);
     let nextProfile = potentialProfiles[randomIndex];
@@ -39,9 +39,11 @@ function moveToNextProfile() {
 function likeProfile(likedUserId) {
     const currentUserId = model.app.currentUserId
     let currentUser = model.data.registeredUsers.find(user => user.id === currentUserId);
-    
+    let actionHistory = model.inputs.mainPage.actionHistory;
+
     if (!currentUser.likes.includes(likedUserId)) {
         currentUser.likes.push(likedUserId);
+        actionHistory.push({ userId: likedUserId, action: 'like' });
         console.log(`User ${currentUserId} liked User ${likedUserId}`);
     } else {
         console.log(`User ${currentUserId} already liked User ${likedUserId}`);
@@ -51,12 +53,34 @@ function likeProfile(likedUserId) {
 function dislikeProfile(dislikedUserId) {
     const currentUserId = model.app.currentUserId;
     let currentUser = model.data.registeredUsers.find(user => user.id === currentUserId);
+    let actionHistory = model.inputs.mainPage.actionHistory;
 
-    if(!currentUser.dislikes.includes(dislikedUserId)) {
+    if (!currentUser.dislikes.includes(dislikedUserId)) {
         currentUser.dislikes.push(dislikedUserId);
+        actionHistory.push({ userId: dislikedUserId, action: 'dislike' });
         console.log(`User ${currentUserId} disliked User ${dislikedUserId}`)
     } else {
         console.log(`User ${currentUserId} already disliked User ${dislikedUserId}`);
     }
+}
+
+function undoLastAction() {
+    const lastAction = model.inputs.mainPage.actionHistory.pop();
+    const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId);
+
+    if (lastAction.action === 'like') {
+        const index = currentUser.likes.indexOf(lastAction.userId);
+        if(index > -1){
+            currentUser.likes.splice(index, 1)
+        }
+    } else if (lastAction.action === 'dislike'){
+        const index = currentUser.dislikes.indexOf(lastAction.userId);
+        if(index > +1){
+            currentUser.dislikes.splice(index, 1)
+        }
+    }
+    model.inputs.mainPage.currentProfileIndex = model.data.registeredUsers.findIndex(user => user.id === lastAction.userId);
+
+    updateView();
 }
 

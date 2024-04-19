@@ -7,6 +7,7 @@ function homepageView() {
             ${createHeaderHtml()}
             <div class="swipePageContainer">
                 ${createEndOfSwipeHtml()}
+                ${createUndoButtonHtml()}
             </div>
         `;
     } else {
@@ -14,6 +15,7 @@ function homepageView() {
             ${createHeaderHtml()}
             <div class="swipePageContainer">
                 ${createSwipePageHtml()}
+                ${createUndoButtonHtml()}
             </div>
         `;
     };
@@ -53,4 +55,15 @@ function createEndOfSwipeHtml() {
         </div>
     `;
     return html;
+}
+
+function createUndoButtonHtml() {
+    const actionHistory = model.inputs.mainPage.actionHistory
+    if (actionHistory && actionHistory.length > 0) {
+        let html = /*HTML*/ `
+            <button class="undoButton" onclick="undoLastAction()">↩ Undo</button>
+        `;
+        return html;
+    }
+    return '';
 }
