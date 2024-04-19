@@ -6,7 +6,7 @@ function updateView() {
 }
 
 function createHeaderHtml() {
-    const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId)
+    const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId);
 
     let html = /*HTML*/ `
     <div class="headerFull">
