@@ -1,9 +1,7 @@
 const model = {
     app: {
-        currentPage: null, //'homepage',' 'settings', null
-        currentUserId: null,
-        currentPage: 'homepage', //'homepage',' 'settings', null (login)
-        currentUserId: 1, // null.
+        currentPage: null, //'homepage',' 'settings', null (login)
+        currentUserId: null, // null.
         darkMode: false,
     },
     inputs: {
@@ -22,6 +20,7 @@ const model = {
         mainPage: {
             previousUserId: null,
             currentProfileIndex: 0,
+            actionHistory: [],
         },
         chatPage: {
             content: null,
