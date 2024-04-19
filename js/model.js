@@ -39,13 +39,12 @@ const model = {
             selctedActivity: null,
         },
         settingPage: {
-            isChangingPassword: false,
-            isChangingEmail: false,
-            isChangingPhone: false,
+            isChanging: null, //null, 'phone', 'email', 'password'
             changeEmailInput: null,
             changePhoneNrInput: null,
             changePasswordInput: null,
             changePasswordReInput: null,
+            changingErrorMessage: null,
             locationInput: null, /*kart? tekst? */
             minDistance: null,
             maxDistance: null,
