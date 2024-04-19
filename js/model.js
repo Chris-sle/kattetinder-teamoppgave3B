@@ -1,7 +1,7 @@
 const model = {
     app: {
-        currentPage: 'settings', //'homepage',' 'settings', null
-        currentUserId: 1,
+        currentPage: null, //'homepage',' 'settings', null (login)
+        currentUserId: null,
         darkMode: false,
     },
     inputs: {
@@ -45,7 +45,7 @@ const model = {
             changePasswordInput: null,
             changePasswordReInput: null,
             changingErrorMessage: null,
-            locationInput: null, /*kart? tekst? */
+            locationInput: null, // kart/tekst (usikker på hvordan vi skal gjøre dette )
             minDistance: null,
             maxDistance: null,
             visibilityInput: null,
