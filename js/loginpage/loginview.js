@@ -10,8 +10,10 @@ function loginView() {
           type="password" 
           oninput="model.inputs.loginPage.passwordInput=this.value" 
           placeholder="Enter Password"/>
+          <div>
         <button onclick="login()">Login</button>
         <button onclick="changeModel(true)">New User</button>
+        </div>
       </div>
     `;
   } else {
