@@ -4,17 +4,17 @@ function homepageView() {
 
     if (!hasProfiles) {
         app.innerHTML = /*HTML*/ `
-        ${createHeaderHtml()}
-        <div class="swipePageContainer">
-            ${createEndOfSwipeHtml()}
-        </div>
+            ${createHeaderHtml()}
+            <div class="swipePageContainer">
+                ${createEndOfSwipeHtml()}
+            </div>
         `;
     } else {
         app.innerHTML = /*HTML*/ `
-        ${createHeaderHtml()}
-        <div class="swipePageContainer">
-            ${createSwipePageHtml()}
-        </div>
+            ${createHeaderHtml()}
+            <div class="swipePageContainer">
+                ${createSwipePageHtml()}
+            </div>
         `;
     };
 }
