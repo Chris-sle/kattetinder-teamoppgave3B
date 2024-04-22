@@ -1,0 +1,30 @@
+.activitiesContainer {
+    min-height: auto;
+    display: grid;
+    place-items: center;
+}
+
+.activitiesList {
+    display: grid;
+    text-align: center;
+    border: 0.2em solid black;
+    width: 10em;
+    padding: 1em;
+    gap: 0.5em;
+}
+
+.activitiesList h3 {
+    margin-top: 0;
+    border-bottom: 0.2em solid black;
+}
+
+.activity {
+    border: 0.2em solid black;
+    
+}
+
+.activity:hover {
+    cursor: pointer;
+    border: 0.2em solid red; /* Example: Change color on hover */
+}
+

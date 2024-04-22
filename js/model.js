@@ -1,7 +1,7 @@
 const model = {
     app: {
-        currentPage: null, //'homepage',' 'settings', null (login)
-        currentUserId: null, // null.
+        currentPage: 'activities', //'homepage',' 'settings', 'activities', null (login)
+        currentUserId: 1, // null.
         darkMode: false,
     },
     inputs: {
@@ -217,8 +217,26 @@ const model = {
             {
                 hostId: 1,
                 participantsIds: [1, 2],
-                date: '2024-04-08T11:02:46',
-                location: '',
+                title: 'Tur i parken',
+                description: 'Vi møtes for en tur i parken',
+                date: '2024-05-25T11:02:46',
+                location: 'Råde',
+            },
+            {
+                hostId: 2,
+                participantsIds: [2, 1, 3],
+                title: '17-Mai Feiring!',
+                description: 'Kom på en 17-Mai feiring uten like! både tunfisk og kattegress å finne!',
+                date: '2024-05-17T16:00:00',
+                location: 'Moss',
+            },
+            {
+                hostId: 4,
+                participantsIds: [2, 4, 6, 7],
+                title: 'Katte Mafia Rekrutteringsdag',
+                description: 'Vi trenger fersk blod for vår gjeng! Opptaks prøver gjøres med engang!',
+                date: '2024-05-08T11:02:46',
+                location: 'Oslo',
             },
 
         ],

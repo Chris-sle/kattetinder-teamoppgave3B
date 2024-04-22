@@ -3,6 +3,7 @@ function updateView() {
     if (page == null) loginView();
     else if (page == 'homepage') homepageView();
     else if (page == 'settings') settingsView();
+    else if (page == 'activities') activitiesView();
 }
 
 function createHeaderHtml() {
