@@ -1,7 +1,7 @@
 const model = {
     app: {
-        currentPage: 'activities', //'homepage',' 'settings', 'activities', null (login)
-        currentUserId: 1, // null.
+        currentPage: null, //'homepage',' 'settings', 'activities', null (login)
+        currentUserId: null, // null.
         darkMode: false,
     },
     inputs: {
@@ -33,11 +33,13 @@ const model = {
         },
         activityPage: {
             createNewActivity: {
-                startDateInput: null,
-                endDateInput: null,
-                locationInput: null,
+                isTrue: false,
+                date: null,
+                title: null,
+                description: null,
+                privacy: false,
             },
-            selctedActivity: null,
+            selectedActivity: null,
         },
         settingPage: {
             isChanging: null, //null, 'phone', 'email', 'password'

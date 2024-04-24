@@ -16,7 +16,7 @@ function createHeaderHtml() {
         <div class="headerLeft, headerItem">
             <button onclick="goTo('homepage')">Hjem</button>
             <button>Chat</button>
-            <button>Aktiviteter</button>
+            <button onclick="goTo('activities')">Aktiviteter</button>
         </div>
 
         <div class="headerCenter, headerItem">
@@ -24,11 +24,9 @@ function createHeaderHtml() {
         </div>
 
         <div class="headerRight, headerItem">
-            <div>
             <p>Du er logget inn som ${currentUser.displayName}
-            <button>Profil</button>
+            <button onclick="goTo('profilepage')">Profil</button>
             <button onclick="goTo('settings')">Innstillinger</button>
-            </div>
         </div>
 
     </div>

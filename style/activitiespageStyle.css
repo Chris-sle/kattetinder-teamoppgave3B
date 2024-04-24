@@ -28,3 +28,32 @@
     border: 0.2em solid red; /* Example: Change color on hover */
 }
 
+.activitiesList button:hover {
+    cursor: pointer;
+}
+
+.addActivity {
+    display: grid;
+    place-items: center;
+    gap: 0.5em;
+    border: 0.2em solid black;
+    padding: 0.5em;
+}
+
+.addActivity div {
+    display: flex;
+}
+
+
+.addActivity .description {
+    min-height: 40px;
+    width: 171,09px;
+}
+
+.activityInfo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    text-align: center;
+}
+
