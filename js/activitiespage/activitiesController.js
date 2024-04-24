@@ -6,7 +6,6 @@ function showActivityInfo(activityId) {
     } else {
         model.inputs.activityPage.selectedActivity = activityId;
     }
-
     updateView();
 }
 

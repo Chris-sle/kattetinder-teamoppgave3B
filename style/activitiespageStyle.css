@@ -4,6 +4,13 @@
     place-items: center;
 }
 
+#activitiesContainer {
+    min-height: auto;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .activitiesList {
     display: grid;
     text-align: center;
@@ -55,5 +62,10 @@
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
     text-align: center;
+}
+
+.activityInfo {
+    display: flex;
+    flex-direction: column;
 }
 
