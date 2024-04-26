@@ -80,7 +80,7 @@ function undoLastAction() {
         }
     }
     model.inputs.mainPage.currentProfileIndex = model.data.registeredUsers.findIndex(user => user.id === lastAction.userId);
-
+    /*Fikse denne sånn at den returnerer riktig profilIndex etter en undo*/
     updateView();
 }
 

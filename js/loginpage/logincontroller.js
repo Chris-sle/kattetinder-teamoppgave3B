@@ -10,7 +10,7 @@ function login() {
       login.errorMessage = 'Feil brukernavn og/eller passord';
   } else {
       model.app.currentPage = 'homepage';
-      model.app.loggedInUserId = userId;
+      model.app.currentUserId = userId;
       login.errorMessage = '';
       login.usernameInput = null;
       login.passwordInput = null;
