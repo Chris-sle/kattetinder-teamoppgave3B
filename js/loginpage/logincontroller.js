@@ -60,7 +60,7 @@ function registerNewUser() {
       model.data.registeredUsers.push(newUser);
 
       model.app.currentPage = 'homepage';
-      model.app.loggedInUserId = newUserId;
+      model.app.currentUserId = newUserId;
 
       resetRegistrationInputs();
       updateView()
