@@ -15,7 +15,7 @@
     display: grid;
     text-align: center;
     border: 0.2em solid black;
-    width: 10em;
+    width: 15em;
     padding: 1em;
     gap: 0.5em;
 }
@@ -27,6 +27,17 @@
 
 .activity {
     border: 0.2em solid black;
+}
+
+.activity-header {
+    display: grid;
+    grid-template-columns: 3em 1fr;
+}
+
+.activity-header img{
+    grid-row: span 2;
+    height: 5em;
+    max-width: 3em;
     
 }
 

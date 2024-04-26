@@ -15,6 +15,11 @@ function showAddActivity(bolean) {
     updateView()
 }
 
+function deleteActivity(activityId) {
+    console.log('Sletter aktivitet', activityId);
+    // Legg til logikk for å slette aktiviteten
+}
+
 function setPrivacy() {
     const privacyCheckbox = document.getElementById('privacyCheckbox')
     let privacy = model.inputs.activityPage.createNewActivity.privacy;
@@ -28,10 +33,21 @@ function setPrivacy() {
     }
 }
 
+function generateActivityId() {
+    if (model.data.activities.length === 0) {
+        return 1;
+    } else {
+        const maxId = model.data.activities.reduce((max, activity) => {
+            return (activity.hostId > max) ? activity.hostId : max;
+        }, 0);
+        return maxId + 1;
+    }
+}
+
 function addActivity() {
     const createNewActivity = model.inputs.activityPage.createNewActivity;
     const newActivity = {
-        hostId: model.data.activities.length + 1,
+        hostId: generateActivityId(),
         participantsIds: [],
         title: createNewActivity.title,
         description: createNewActivity.description,

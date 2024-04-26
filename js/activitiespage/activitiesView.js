@@ -106,12 +106,28 @@ function createRegularStateHtml() {
 
 function createActivitiesListHtml() {
     const activities = model.data.activities;
+    const users = model.data.registeredUsers;
+    const userId = model.app.currentUserId;
     let html = '';
 
-    for (activity of activities) {
+    for (let activity of activities) {
+        let date = new Date(activity.date);
+        let formattedDate = date.toLocaleDateString('no-nb', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const hostUser = users.find(user => user.id === activity.hostId);
+        let hostImage = hostUser ? hostUser.uploadedImgs[hostUser.profilePictureIndex] : 'placeholder.jpg';
+
         html += /*HTML*/ `
             <div class="activity" onclick="showActivityInfo(${activity.hostId})">
-                ${activity.title}
+                <div class="activity-header">
+                    <img src="${hostImage}" alt="Host Image" class="host-image">
+                    <h3>${activity.title}</h3>
+                    <p>${formattedDate}</p>
+                </div>
+                ${activity.hostId === userId ? 
+                    `<button onclick="editActivity(${activity.id}); event.stopPropagation();">Rediger</button>
+                     <button onclick="deleteActivity(${activity.id}); event.stopPropagation();">Slett</button>`
+                    : ''}
             </div>
         `;
     }
