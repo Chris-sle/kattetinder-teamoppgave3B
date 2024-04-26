@@ -15,7 +15,8 @@ const model = {
                 newPhoneNrInput: null,
                 newPasswordInput: null,
                 newPasswordReInput: null,
-            }
+            },
+            errorMessage: '',
         },
         mainPage: {
             previousUserId: null,
