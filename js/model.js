@@ -1,7 +1,7 @@
 const model = {
     app: {
-        currentPage: null, //'homepage',' 'settings', 'activities', null (login)
-        currentUserId: null, // null.
+        currentPage: 'activities', //'homepage',' 'settings', 'activities', null (login)
+        currentUserId: 1, // null.
         darkMode: false,
     },
     inputs: {
