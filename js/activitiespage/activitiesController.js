@@ -5,8 +5,40 @@ function showActivityInfo(activityId) {
         model.inputs.activityPage.selectedActivity = null;
     } else {
         model.inputs.activityPage.selectedActivity = activityId;
+        
     }
+    
     updateView();
+}
+
+function initializeMap() {
+    model.inputs.activityPage.myMap = L.map('mapid').setView([59.9133301, 10.7389701], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(model.inputs.activityPage.myMap);
+}
+
+function getCoordinatesFromAddress(location) {
+    const address = location;
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.length > 0) {
+            const latitude = parseFloat(data[0].lat);
+            const longitude = parseFloat(data[0].lon);
+            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+            updateMap(latitude, longitude);
+        } else {
+            console.log('No results found');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function updateMap(lat, lng) {
+    let myMap = model.inputs.activityPage.myMap;
+    myMap.setView([lat, lng], 13);
+    L.marker([lat, lng]).addTo(myMap).bindPopup("New marker based on search").openPopup();
 }
 
 function showAddActivity(bolean) {

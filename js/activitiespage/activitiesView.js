@@ -11,6 +11,7 @@ function activitiesView() {
         app.innerHTML = /*HTML*/ `
             ${createShowAllActivityInfoHtml(activityPage.selectedActivity)}
         `;
+        initializeMap();
     } else {
         app.innerHTML = /*HTML*/ `
             ${createRegularStateHtml()} 
@@ -72,12 +73,10 @@ function createShowAllActivityInfoHtml(selectedActivityId) {
                         <button onclick="showAddActivity(true)">Legg til ny Aktivitet</button>
                     </div>
                 </div>
-                <div class="mapSection">
-                    Map!
-                    <!-- Include map here -->
-                </div>
+                <div id="mapid"></div>
             </div>
         `;
+        getCoordinatesFromAddress(selectedActivity.location)
     } else {
         html = /*HTML*/ `
             ${createHeaderHtml()}
@@ -114,6 +113,7 @@ function createActivitiesListHtml() {
         let date = new Date(activity.date);
         let formattedDate = date.toLocaleDateString('no-nb', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         
+        // Finn brukeren som er vert for denne aktiviteten
         const hostUser = users.find(user => user.id === activity.hostId);
         let hostImage = hostUser ? hostUser.uploadedImgs[hostUser.profilePictureIndex] : 'placeholder.jpg';
 

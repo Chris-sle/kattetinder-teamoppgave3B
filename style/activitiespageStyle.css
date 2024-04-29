@@ -80,3 +80,8 @@
     flex-direction: column;
 }
 
+#mapid {
+    width: 600px;
+    height: 400px;
+}
+

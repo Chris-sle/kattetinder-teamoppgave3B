@@ -1,7 +1,7 @@
 const model = {
     app: {
-        currentPage: 'activities', //'homepage',' 'settings', 'activities', null (login)
-        currentUserId: 1, // null.
+        currentPage: null, //'homepage',' 'settings', 'activities', null (login)
+        currentUserId: null, // null.
         darkMode: false,
     },
     inputs: {
@@ -41,6 +41,7 @@ const model = {
                 privacy: false,
             },
             selectedActivity: null,
+            myMap: null,
         },
         settingPage: {
             isChanging: null, //null, 'phone', 'email', 'password'
@@ -60,10 +61,6 @@ const model = {
             }
         }
     },
-
-
-
-
     data: {
         registeredUsers: [
             {
@@ -223,7 +220,7 @@ const model = {
                 title: 'Tur i parken',
                 description: 'Vi møtes for en tur i parken',
                 date: '2024-05-25T11:02:46',
-                location: 'Råde',
+                location: 'Skogveien 1, 1640 Råde, Norway',
             },
             {
                 hostId: 2,
