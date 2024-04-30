@@ -57,7 +57,7 @@ function editProfileView(){
         <br>
         <div class="bioOfUser">${currentUser.displayBio}</div>
         <br>
-        <input id="inputBio" type="text">
+        <input id="inputBio" type="text" onchange="${currentUser.displayBio}" value="${currentUser.displayBio}">
         <button>UPDATE BIO</button>
         <br>
         <br>
