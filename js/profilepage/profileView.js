@@ -2,11 +2,11 @@ function profileView() {
     const app = document.getElementById('app');
     const profilePage = model.inputs.profilePage;
 
-    if (profilePage !== null) {
+    if (profilePage.isEditing === true) {
         app.innerHTML = /*HTML*/ `
             ${editProfileView()}
         `;
-    } else if (profilePage === null ) {
+    } else if (profilePage.isAddingMedia === true ) {
         app.innerHTML = /*HTML*/ `
             ${addMediaView()}
         `;
@@ -26,19 +26,19 @@ function originalProfileView() {
     ${createHeaderHtml()}
         <div class="profileContainer">
             <h1>Profile</h1>
-                <img class="mainProfileIcon" id="mainProfileIcon" src="img/Picture1.png" />
+                <img class="mainProfileIcon" id="mainProfileIcon" src="${currentUser.uploadedImgs[currentUser.profilePictureIndex]}" />
                 <h3>${currentUser.displayName}, ${currentUser.displayAge}</h3>
                 <div class="settingsEditContainer">
                     <div class="conatinerIcons">
-                        <div class="settingsIcon" id="" onclick="" ></div>
+                        <div class="settingsIcon" id="" onclick="goTo('settings')" ><img class="mainProfileIcon" id="mainProfileIcon" src="img/settingsIcon.jpg"/></div>
                         <div>SETTINGS</div>
                     </div>
                     <div class="conatinerIcons">
-                        <div class="addMediaIcon" id="" onclick="addMedia()" ></div>
+                        <div class="addMediaIcon" id="" onclick="addMedia(true)" ></div>
                         <div>ADD MEDIA</div>
                     </div>
                     <div class="conatinerIcons">
-                        <div class="editIcon" id="" onclick="editProfile()" ></div>
+                        <div class="editIcon" id="" onclick="editProfile(true)" ></div>
                         <div>EDIT</div>
                     </div>
                 </div>            
@@ -57,8 +57,8 @@ function editProfileView(){
         <br>
         <div class="bioOfUser">${currentUser.displayBio}</div>
         <br>
-        <input id="inputBio" type="text" onchange="${currentUser.displayBio}" value="${currentUser.displayBio}">
-        <button>UPDATE BIO</button>
+        <input id="inputBio" type="text" value="${currentUser.displayBio}">
+        <button onclick="editBio()">UPDATE BIO</button>
         <br>
         <br>
         <br>
@@ -89,6 +89,7 @@ function editProfileView(){
             <button>something</button>
             <button>All</button>
         </div>
+        <button onclick="editProfile(false)">Back to profile</button>
     </div>
     `;
     return html
@@ -98,8 +99,8 @@ function editProfileView(){
 //Add Media View
 function addMediaView(){
     let html = /*HTML*/`
-    ${createHeaderHtml()}
-
+        ${createHeaderHtml()}
+        <button onclick="addMedia(false)">Back to profilepage</button>
 
     `;
     return html
