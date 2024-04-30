@@ -34,6 +34,11 @@ function createRegisterNewActivityHtml() {
                     oninput="model.inputs.activityPage.createNewActivity.date=this.value"  
                     placeholder="Date" />
                 <input 
+                    class="location"
+                    type="text"
+                    oninput="model.inputs.activityPage.createNewActivity.location=this.value"  
+                    placeholder="Address, Postalcode Area" />
+                <input 
                     class="description"
                     type="text"
                     oninput="model.inputs.activityPage.createNewActivity.description=this.value"  

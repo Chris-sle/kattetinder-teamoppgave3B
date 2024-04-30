@@ -34,9 +34,9 @@ const model = {
         },
         activityPage: {
             createNewActivity: {
-                isTrue: false,
                 date: null,
                 title: null,
+                location: null,
                 description: null,
                 privacy: false,
             },
