@@ -83,7 +83,7 @@ function editProfileView(){
             <br>
             <br>
             <div>Age-Range Selection</div>
-            <div>${currentUser.activeFilters.age}</div>
+            <div>${currentUser.activeFilters.ageRangeSelected}</div>
             <button>something</button>
             <button>something</button>
             <button>something</button>
