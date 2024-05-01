@@ -38,7 +38,7 @@ function originalProfileView() {
                         <div>ADD MEDIA</div>
                     </div>
                     <div class="conatinerIcons">
-                        <div class="editIcon" id="" onclick="editProfile(true)" ></div>
+                        <div class="editIcon" id="" onclick="editProfile(true)" ><img class="mainProfileIcon" id="mainProfileIcon" src="img/pencil.png"/></div>
                         <div>EDIT</div>
                     </div>
                 </div>            
