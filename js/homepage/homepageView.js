@@ -26,15 +26,15 @@ function createSwipePageHtml() {
     const index = model.inputs.mainPage.currentProfileIndex;
     let html = /*HTML*/ `
         <div>
-            <h3>${user[index].displayName}</h3>
+            <h1>${user[index].displayName}</h1>
             <div class="profileCard">
-                <button onclick="swipeLeft(${user[index].id})">👎</button>
+                <button class="thumbs" onclick="swipeLeft(${user[index].id})">👎🏾</button>
                 <div class="img-container">
                 <img id="profileImg" 
                     src="${user[index].uploadedImgs[user[index].profilePictureIndex]}" 
                     alt="profile picture">
                 </div>
-                <button onclick="swipeRight(${user[index].id})">👍</button>
+                <button class="thumbs" onclick="swipeRight(${user[index].id})">👍🏾</button>
                 <p id="displayBio">${user[index].displayBio}</p>
             </div>
         </div>

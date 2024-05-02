@@ -24,7 +24,7 @@ function editProfile(bolean) {
 
 
 //Edit Page
-function editBio() {
+function saveChangesBio() {
     const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId);
     const inputElement = document.getElementById('inputBio');
     const newBio = inputElement.value;
@@ -37,6 +37,28 @@ function editBio() {
         console.log('No changes made or user not found.');
     }
 }
+
+
+// function changeGender(gender){
+//     const currentUser = model.data.registeredUsers.find(user => user.id === model.app.currentUserId);
+//     const currentFilter = currentUser.activeFilters;
+//     const currentGender = currentFilter.genderSelected;
+
+//     if(currentGender !== gender){
+//         currentGender[currentGender.length - 1] = gender;
+//         console.log(`Gender Changed to: ${gender}`)
+//     } else {
+//         console.log(`Gender remains ${gender}`)        
+//     }
+
+//     // currentGender[currentGender.length - 1] = gender;
+//     // currentGender.splice(0,1);
+//     // currentGender.push(gender);
+//     updateView();
+// }
+
+
+
 
 
 
