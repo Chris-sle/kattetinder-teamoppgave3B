@@ -18,6 +18,9 @@ button{
     border-radius: 7px;
 }
 
+button :hover {
+    cursor: pointer;
+}
 
 
 
