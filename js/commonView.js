@@ -19,19 +19,19 @@ function createHeaderHtml() {
     <div class="headerFull">
 
         <div class="headerLeft headerItem"> <!-- Corrected class names -->
-            <button onclick="goTo('homepage')">Hjem</button>
-            <button>Chat</button>
-            <button onclick="goTo('activities')">Aktiviteter</button>
+            <button class="header" onclick="goTo('homepage')">HJEM</button>
+            <button class="header">CHAT</button>
+            <button class="header" onclick="goTo('activities')">AKTIVITETER</button>
         </div>
 
         <div class="headerCenter headerItem">
-            <h1>Meowtch!</h1> <!-- Corrected closing tag -->
+            <h1 class="header" >MEOWTCH!</h1> <!-- Corrected closing tag -->
         </div>
 
         <div class="headerRight headerItem">
-            <p>Du er logget inn som ${currentUser.displayName}</p> <!-- Ensure text is enclosed in <p> -->
-            <button onclick="goTo('profilepage')">Profil</button>
-            <button onclick="goTo('settings')">Innstillinger</button>
+            <p class="logInnUser" >Du er logget inn som: <u>${currentUser.displayName}</u></p> <!-- Ensure text is enclosed in <p> -->
+            <button class="header" onclick="goTo('profilepage')">PROFIL</button>
+            <button class="header" onclick="goTo('settings')">INSTILLINGER</button>
         </div>
 
     </div>

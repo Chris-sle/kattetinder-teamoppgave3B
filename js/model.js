@@ -31,6 +31,8 @@ const model = {
             insertNameInput: null,
             insertAgeInput: null,
             insertBioInput: null,
+            isEditing: false,
+            isAddingMedia: false,
         },
         activityPage: {
             createNewActivity: {

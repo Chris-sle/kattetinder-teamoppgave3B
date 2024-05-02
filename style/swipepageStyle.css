@@ -1,8 +1,14 @@
 .swipePageContainer {
-    width: 100vw;
+    width: 1000px;
     display: grid;
     place-items: center;
     text-align: center;
+    border: solid 5px rgb(238, 212, 159);
+    box-shadow: 0px 0px 10px 5px grey;
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
 .profileCard {
@@ -14,6 +20,8 @@
 .profileCard button {
   width: 100px;
   height: 100px;
+  box-shadow: 0px 0px 10px 2px grey;
+  border: rgb(54, 58, 79) 1px;
 }
 
 .profileCard p {
@@ -21,8 +29,10 @@
 }
 
 .img-container {
-  width: 200px; 
-  height: 200px; 
+  width: 250px; 
+  height: 250px;
+  box-shadow: 0px 0px 10px 2px grey;
+  border-radius: 10px;
   overflow: hidden; /* Ensures anything outside the bounds does not show */
 }
 
@@ -36,3 +46,17 @@
 .endMessage li {
   text-align: start;
 }
+
+button.thumbs{
+  font-size: 40px;
+}
+
+
+
+
+
+
+
+
+
+
