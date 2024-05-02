@@ -46,7 +46,10 @@ const model = {
         settingPage: {
             isChanging: null, //null, 'phone', 'email', 'password'
             changeEmailInput: null,
-            changePhoneNrInput: null,
+            phone: {
+                newPhoneInput1: null,
+                newPhoneInput2: null,
+            },
             changePasswordInput: null,
             changePasswordReInput: null,
             changingErrorMessage: null,

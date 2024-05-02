@@ -35,3 +35,16 @@ body {
     justify-content: flex-end;
 }
 
+.settingsContent {
+    margin: 5px;
+}
+
+.settingsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.settingsItem {
+    background-color: rgb(210, 210, 210);
+    margin: 10px;
+}

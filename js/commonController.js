@@ -1,6 +1,6 @@
 function goTo(page) {
     model.app.currentPage = page;
-    updateView()
+    updateView();
 }
 
 function logOut(){
