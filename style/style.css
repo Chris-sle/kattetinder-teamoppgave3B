@@ -18,7 +18,7 @@ button{
     border-radius: 7px;
 }
 
-button :hover {
+button:hover {
     cursor: pointer;
 }
 
@@ -53,6 +53,10 @@ button.header{
     border-radius: 5px;
     font-weight: 700;
     color: rgb(54, 58, 79);
+}
+
+.headerFull button:hover {
+    cursor: pointer;
 }
 
 h1.header{
