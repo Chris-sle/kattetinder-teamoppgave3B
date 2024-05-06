@@ -55,9 +55,9 @@ button.header{
     color: rgb(54, 58, 79);
 }
 
-.headerFull button:hover {
+/* .headerFull button:hover {
     cursor: pointer;
-}
+} */
 
 h1.header{
     background-color:rgb(242, 213, 207) ;

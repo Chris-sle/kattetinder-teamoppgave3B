@@ -38,18 +38,64 @@ function getCoordinatesFromAddress(location) {
 function updateMap(lat, lng) {
     let myMap = model.inputs.activityPage.myMap;
     myMap.setView([lat, lng], 13);
-    L.marker([lat, lng]).addTo(myMap).bindPopup("New marker based on search").openPopup();
+    L.marker([lat, lng]).addTo(myMap);
 }
+
+function isParticipant(userId, participantsIds) {
+    return participantsIds.includes(userId);
+}
+
+function participantAction(activityId) {
+    console.log(activityId)
+    const currentUserId = model.app.currentUserId;
+    const activity = model.data.activities.find(a => a.id === activityId);
+
+    if (!activity) {
+        console.log("Activity not found.");
+        return;
+    }
+
+    if (activity.participantsIds.includes(currentUserId)) {
+        activity.participantsIds = activity.participantsIds.filter(id => id !== currentUserId);
+        console.log(`User ${currentUserId} has left the activity (${activityId}).`);
+    } else {
+        activity.participantsIds.push(currentUserId);
+        console.log(`User ${currentUserId} has joined the activity (${activityId}).`);
+    }
+    updateView();
+}
+
 
 function showAddActivity(bolean) {
     model.inputs.activityPage.createNewActivity.isTrue = bolean;
+    model.inputs.activityPage.selectedActivity = null;
     console.log(model.inputs.activityPage);
     updateView()
 }
 
 function deleteActivity(activityId) {
-    console.log('Sletter aktivitet', activityId);
-    // Legg til logikk for å slette aktiviteten
+    console.log("Attempting to delete activity with ID:", activityId);
+    const activity = model.data.activities.find(a => a.hostId === activityId);
+    const activityIndex = model.data.activities.findIndex(a => a.hostId === activityId && a.hostId === model.app.currentUserId);
+
+    console.log("ActivityId found for deletion:", activity);
+    console.log("Activity's host ID:", activity.hostId);
+    console.log("Current User ID:", model.app.currentUserId);
+    console.log("All Activities before:", model.data.activities);
+
+    if (activityIndex !== -1) {
+        console.log("Before deletion, activities count:", model.data.activities.length);
+
+        model.data.activities.splice(activityIndex, 1);
+
+        console.log(`Activity with hostId ${activityId} has been deleted`);
+        console.log("After deletion, activities count:", model.data.activities.length);
+        model.inputs.activityPage.selectedActivity = null;
+    } else {
+        console.log("Activity not found or user not authorized to delete this activity.");
+    }
+    console.log("All Activities after:", model.data.activities);
+    updateView();
 }
 
 function setPrivacy() {
@@ -65,22 +111,13 @@ function setPrivacy() {
     }
 }
 
-function generateActivityId() {
-    if (model.data.activities.length === 0) {
-        return 1;
-    } else {
-        const maxId = model.data.activities.reduce((max, activity) => {
-            return (activity.hostId > max) ? activity.hostId : max;
-        }, 0);
-        return maxId + 1;
-    }
-}
-
 function addActivity() {
     const createNewActivity = model.inputs.activityPage.createNewActivity;
+    const currentUserId = model.app.currentUserId
     const newActivity = {
-        hostId: generateActivityId(),
-        participantsIds: [],
+        id: model.data.activities.length +1,
+        hostId: model.app.currentUserId,
+        participantsIds: [currentUserId],
         title: createNewActivity.title,
         description: createNewActivity.description,
         date: createNewActivity.date,
@@ -90,4 +127,69 @@ function addActivity() {
     model.data.activities.push(newActivity);
     model.inputs.activityPage.createNewActivity.isTrue = false;
     updateView()
+}
+
+function showEditActivity(activityId, editing) {
+    console.log(activityId);
+    model.inputs.activityPage.selectedActivity = activityId;
+    model.inputs.activityPage.isEditing = editing;
+    updateView();
+}
+
+function editActivity() {
+    const activityId = model.inputs.activityPage.selectedActivity;
+
+    if (activityId) {
+        // Update the selected activity properties from input values
+        const title = document.getElementById('titleInput').value;
+        const date = document.getElementById('dateInput').value;
+        const location = document.getElementById('locationInput').value;
+        const description = document.getElementById('descriptionInput').value;
+
+        // Find and update the activity with the matching ID
+        const activityToUpdate = model.data.activities.find(activity => activity.id === activityId);
+        if (activityToUpdate) {
+            activityToUpdate.title = title;
+            activityToUpdate.date = date;
+            activityToUpdate.location = location;
+            activityToUpdate.description = description;
+
+            
+        } else {
+            console.error("Selected activity not found for ID:", activityId);
+        }
+    } else {
+        console.error("No selected activity found.");
+    }
+    model.inputs.activityPage.isEditing = false;
+    updateView()
+}
+
+function formatDateString(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    if (month < 10) {
+        month = '0' + month;
+    }
+    let day = date.getDate();
+    if (day < 10) {
+        day = '0' + day;
+    }
+    return `${year}-${month}-${day}`;
+}
+
+function changePrivacy() {
+    const activityId = model.inputs.activityPage.selectedActivity;
+
+    if (activityId) {
+        const selectedActivity = model.data.activities.find(activity => activity.id === activityId);
+        if (selectedActivity) {
+            selectedActivity.privacy = document.getElementById('privacyCheckbox').checked;
+            
+            alert('Privacy setting updated successfully!');
+        } else {
+            console.error("Selected activity not found for ID:", activityId);
+        }
+    }
 }

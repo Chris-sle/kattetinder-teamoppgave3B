@@ -42,6 +42,7 @@ const model = {
                 description: null,
                 privacy: false,
             },
+            isEditing: false,
             selectedActivity: null,
             myMap: null,
         },
@@ -220,6 +221,7 @@ const model = {
 
         activities: [
             {
+                id: 1,
                 hostId: 1,
                 participantsIds: [1, 2],
                 title: 'Tur i parken',
@@ -228,6 +230,7 @@ const model = {
                 location: 'Skogveien 1, 1640 Råde, Norway',
             },
             {
+                id: 2,
                 hostId: 2,
                 participantsIds: [2, 1, 3],
                 title: '17-Mai Feiring!',
@@ -236,6 +239,7 @@ const model = {
                 location: 'Moss',
             },
             {
+                id: 3,
                 hostId: 4,
                 participantsIds: [2, 4, 6, 7],
                 title: 'Katte Mafia Rekrutteringsdag',
